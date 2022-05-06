@@ -1,0 +1,51 @@
+$buttonsColor: white;
+$buttonsBackground: #42414d;
+$bg: #393842;
+$bgDigits: #313038;
+
+
+button{
+    appearance: none;
+    border: none;
+    outline: none;
+    color: $buttonsColor;
+    font-size: 20px;
+    padding: 15px;
+    cursor: pointer;
+    transition: 0.4s;
+    background-color: $buttonsBackground;
+}
+
+button:hover{
+    background-color: $bg;
+}
+
+#operators{
+    display: flex;
+}
+
+
+#operators button{
+    flex: 1 1 0%;
+}
+
+
+#digits button{
+    background-color: $bg;
+    transition: 0.4s;
+}
+
+#digits button:hover{
+    background-color: $bgDigits;
+}
+
+
+#digits{
+    display: flex;
+    flex-wrap: wrap;
+}
+
+#digits button{
+    flex: 1 1 33.33%;
+    max-width: 33.33%;
+}
