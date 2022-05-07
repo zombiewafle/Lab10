@@ -1,21 +1,21 @@
-const path = require('path');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
-const { CleanWebpackPlugin } = require('clean-webpack-plugin');
-const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const path = require("path");
+const HtmlWebpackPlugin = require("html-webpack-plugin");
+const { CleanWebpackPlugin } = require("clean-webpack-plugin");
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 
 module.exports = {
-  mode: 'development',
-  entry: './src/index.js',
+  mode: "development",
+  entry: "./src/index.js",
   output: {
-    filename: 'main.bundle.js',
-    path: path.resolve(__dirname, 'bundle'),
+    filename: "main.bundle.js",
+    path: path.resolve(__dirname, "bundle"),
   },
 
   plugins: [
     new CleanWebpackPlugin(),
-    new MiniCssExtractPlugin({ filename: 'main.bundle.css' }),
+    new MiniCssExtractPlugin({ filename: "main.bundle.css" }),
     new HtmlWebpackPlugin({
-      template: './src/index.html',
+      template: "./src/index.html",
     }),
   ],
 
@@ -23,40 +23,35 @@ module.exports = {
     rules: [
       {
         test: /\.css$/i,
-        use: [MiniCssExtractPlugin.loader, 'css-loader'],
+        use: [MiniCssExtractPlugin.loader, "css-loader"],
       },
 
       {
         test: /\.scss$/i,
-        use:
-            [
-              MiniCssExtractPlugin.loader,
-              'css-loader', 
-              'sass-loader'
-            ],
+        use: [MiniCssExtractPlugin.loader, "css-loader", "sass-loader"],
       },
 
       {
         test: /\.m?js$/,
         exclude: /(node_modules)/,
         use: {
-          loader: 'babel-loader',
+          loader: "babel-loader",
           options: {
-            presets: ['@babel/preset-env', '@babel/preset-react'],
+            presets: ["@babel/preset-env", "@babel/preset-react"],
           },
         },
       },
 
       {
         test: /\.html$/,
-        use: ['html-loader'],
+        use: ["html-loader"],
       },
 
       {
         test: /\.(png|jpe?g|gif|mp4)$/i,
-        loader: 'file-loader',
+        loader: "file-loader",
         options: {
-          outputPath: 'images',
+          outputPath: "images",
         },
       },
     ],
